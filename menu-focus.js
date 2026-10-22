@@ -50,7 +50,8 @@
   let pageY = 0, previousY = window.scrollY;
   let armed = true, closing = false, frame = false;
   let dragY = 0, distance = 0, wheelPull = 0, wheelDirection = 0, lastWheel = 0;
-  const dismissDistance = () => clamp(window.innerHeight * .29, 190, 260);
+  // Require a clearly intentional swipe before the floating card follows the finger.
+  const dismissDistance = () => clamp(window.innerHeight * .42, 300, 380);
 
   function stopMomentum() {
     if (momentum !== undefined) cancelAnimationFrame(momentum);
@@ -86,16 +87,8 @@
     placeholder = document.createElement('div');
     placeholder.className = 'menu-placeholder';
     placeholder.style.height = section.offsetHeight + 'px';
-    // Preserve the real page visually underneath the floating card.
-    if (typeof section.cloneNode === 'function') {
-      const preview = section.cloneNode(true);
-      preview.removeAttribute('id');
-      preview.querySelectorAll('[id]').forEach(item => item.removeAttribute('id'));
-      preview.querySelectorAll('.reveal').forEach(item => item.classList.add('is-visible'));
-      preview.inert = true;
-      preview.setAttribute('aria-hidden', 'true');
-      placeholder.append(preview);
-    }
+    // Keep the page's flow, but do not duplicate the menu underneath the card.
+    // The dialog is the only visible copy while the menu is open.
     section.before(placeholder);
     dialog.append(section);
     section.classList.add('menu-expanded');
@@ -173,13 +166,13 @@
   function moveGesture(x, y, event) {
     if (!gesture || closing) return;
     const dy = y - gesture.startY, dx = x - gesture.startX;
-    if (Math.abs(dy) < 5 && Math.abs(dx) < 5) return;
+    if (Math.abs(dy) < 12 && Math.abs(dx) < 12) return;
     if (Math.abs(dx) > Math.abs(dy) * 1.3) { resetDrag(); return; }
     if (event.cancelable) event.preventDefault();
     if (gesture.activation === undefined) {
       const outwardEdge = dy > 0 ? scroller.scrollTop <= 1
         : scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1;
-      gesture.activation = gesture.inList && !outwardEdge ? Math.min(120, window.innerHeight * .16) : 0;
+      gesture.activation = gesture.inList && !outwardEdge ? Math.min(170, window.innerHeight * .22) : 0;
     }
     // Small gestures scroll dishes. A long swipe transfers its excess travel
     // to the whole card, without requiring the beginning/end of the list.

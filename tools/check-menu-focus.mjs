@@ -87,7 +87,7 @@ end(); assert.ok(dialog.open);
 
 scroller.scrollTop = 900;
 start(500); move(320);
-assert.equal(scroller.scrollTop, 1020);
+assert.equal(scroller.scrollTop, 1070);
 assert.ok(parseFloat(dialog.style['--sheet-y']) < 0, 'Medium swipe moves the whole card in the finger direction');
 end();
 assert.ok(dialog.open, 'Medium swipe must spring back rather than close');
@@ -95,7 +95,7 @@ assert.equal(dialog.style['--sheet-y'], '0px');
 assert.equal(dialog.classList.contains('is-dragging'), false);
 
 scroller.scrollTop = 900;
-start(500); move(200);
+start(500); move(150);
 assert.ok(scroller.scrollTop < scroller.scrollHeight - scroller.clientHeight, 'Dismissal must not require the bottom of the list');
 assert.match(hint.textContent, /Pusťte/);
 end();
@@ -104,7 +104,7 @@ assert.equal(y, 2200);
 window.fire('scroll'); tick(); assert.equal(dialog.open, false, 'No automatic reopen after dismissal');
 
 open(); scroller.scrollTop = 900;
-start(250); move(550);
+start(250); move(600);
 assert.ok(parseFloat(dialog.style['--sheet-y']) > 0);
 end(); assert.equal(dialog.open, false, 'Strong downward swipe closes from mid-list');
 assert.equal(y, 640);
@@ -131,12 +131,12 @@ assert.ok(dialog.open);
 dialog.fire('cancel'); assert.equal(dialog.open, false);
 
 open(); scroller.scrollTop = scroller.scrollHeight - scroller.clientHeight;
-for (let i = 0; i < 4; i++) scroller.fire('wheel', { deltaX: 0, deltaY: 65, deltaMode: 0 });
+for (let i = 0; i < 6; i++) scroller.fire('wheel', { deltaX: 0, deltaY: 65, deltaMode: 0 });
 flushTimers(); assert.equal(dialog.open, false, 'Deliberate wheel edge overscroll dismisses');
 
 open();
 section.fire('pointerdown', { target: handle, pointerType: 'mouse', button: 0, clientX: 100, clientY: 100 });
-section.fire('pointermove', { pointerType: 'mouse', clientX: 100, clientY: 390 });
+section.fire('pointermove', { pointerType: 'mouse', clientX: 100, clientY: 520 });
 section.fire('pointerup', { pointerType: 'mouse' });
 assert.equal(dialog.open, false, 'The handle is draggable with a mouse too');
 
@@ -151,7 +151,7 @@ dialog.animate = (frames, options) => {
 motion.matches = false;
 open(); assert.equal(animations[0].options.duration, 560);
 scroller.scrollTop = 900;
-start(500); move(200); end();
+start(500); move(150); end();
 assert.ok(dialog.open, 'Closing card stays visible until its fly-out completes');
 assert.match(animations[1].frames[0].transform, /-162/);
 assert.match(animations[1].frames[1].transform, /-900/);

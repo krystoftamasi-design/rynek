@@ -50,6 +50,8 @@ body.menu-is-open{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 .menu-expanded .menu-scroll{min-height:0;flex:1;overflow-y:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;touch-action:pinch-zoom;padding:0 2px 20px;outline-offset:-2px}
 html,.menu-scroll{scrollbar-width:none;-ms-overflow-style:none}
 html::-webkit-scrollbar,body::-webkit-scrollbar,.menu-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+@keyframes hero-pan{0%{object-position:0% center}100%{object-position:100% center}}
+.hero-photo img{animation:hero-pan 16s ease-in-out infinite alternate}
 .menu-expanded .menu-list{min-height:0}
 .menu-expanded .menu-item{padding:27px 0}
 .menu-expanded .menu-item h3{font-size:26px}
