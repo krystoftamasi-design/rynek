@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="cs">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#302927">
+  <meta name="description"
+    content="Na Rynku — restaurace a hospoda. Pracovní návrh mobilního webu s ukázkovým menu a rezervací.">
+  <title>Na Rynku · Restaurace a hospoda</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/gambetta.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/satoshi.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+  <script src="menu-focus.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#o-nas">Přejít k obsahu</a>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="tally" viewBox="0 0 72 72">
+        <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+          <path d="M16 9 23 63M28 7 33 64M42 12 43 65M54 16 53 61M8 43 64 31" />
+        </g>
+      </symbol>
+      <symbol id="fork" viewBox="0 0 150 24">
+        <path
+          d="M2 10C19 5 34 8 55 10L105 10C112 10 115 5 121 4L148 3M120 8 148 8M120 13 148 14M2 10C19 16 34 14 55 12L105 12C112 12 115 18 121 18L148 19"
+          fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+      </symbol>
+      <symbol id="spoon" viewBox="0 0 120 24">
+        <path d="M3 12C3 2 27 1 35 8L42 10 113 8Q119 12 113 15L42 14 35 17C27 24 3 22 3 12Z" fill="currentColor" />
+      </symbol>
+      <symbol id="arrow" viewBox="0 0 42 24">
+        <path d="M2 12h35M27 3l11 9-11 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="page" id="nahoru">
+    <header class="masthead">
+      <h1 class="sr-only">Na Rynku — restaurace a hospoda</h1>
+      <a class="brand" href="#nahoru" aria-label="Na Rynku — úvod">
+        <img src="assets/logo.png" alt="Na Rynku — restaurace a hospoda" width="1460" height="470" fetchpriority="high">
+      </a>
+      <svg class="tally tally-header-left" aria-hidden="true">
+        <use href="#tally" />
+      </svg>
+      <svg class="tally tally-header-right" aria-hidden="true">
+        <use href="#tally" />
+      </svg>
+      <nav class="main-nav" aria-label="Hlavní navigace">
+        <a href="#o-nas">o nás</a>
+        <div class="table-setting" aria-hidden="true">
+          <img src="assets/nav-cutlery.png" alt="" width="1005" height="420">
+        </div>
+        <a href="#menu">menu</a>
+        <a class="nav-reservation" href="#rezervace">rezervace</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <span class="monogram hero-monogram" aria-hidden="true">R</span>
+        <figure class="hero-photo">
+          <img src="assets/interier.webp" alt="Dřevěné stoly a útulný interiér restaurace Na Rynku" width="2048"
+            height="462" fetchpriority="high">
+          <figcaption>U jednoho stolu je vždycky líp.</figcaption>
+        </figure>
+      </div>
+
+      <section class="about section" id="o-nas" aria-labelledby="about-title">
+        <div class="section-heading reveal">
+          <h2 id="about-title" class="underlined">O nás</h2>
+          <img class="heading-fork" src="assets/about-fork.png" alt="" width="600" height="120">
+        </div>
+        <div class="about-copy reveal">
+          <p>Vítáme vás v restauraci Na Rynku, kde je naším cílem, abyste se výborně najedli a rádi se k nám vraceli.
+          </p>
+          <p>Poctivá kuchyně, něco dobrého na čepu a čas, který nikam nespěchá. Přijďte na oběd, večeři nebo jen tak
+            posedět.</p>
+          <a class="text-link" href="#menu">Co si dnes dáte? <span aria-hidden="true">↗</span></a>
+        </div>
+        <span class="monogram about-monogram" aria-hidden="true">R</span>
+        <div class="about-tallies" aria-hidden="true">
+          <svg class="tally">
+            <use href="#tally" />
+          </svg>
+          <svg class="tally">
+            <use href="#tally" />
+          </svg>
+        </div>
+      </section>
+
+      <section class="specials section" id="speciality" aria-labelledby="specials-title">
+        <header class="specials-heading reveal">
+          <span class="eyebrow">U nás na stole</span>
+          <h2 id="specials-title">Speciality</h2>
+        </header>
+        <span class="monogram specials-monogram" aria-hidden="true">R</span>
+        <div class="carousel reveal" role="region" aria-roledescription="karusel"
+          aria-label="Speciality a naše kuchyně">
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <figure class="slide" role="group" aria-roledescription="snímek" aria-label="1 ze 2">
+                <img src="assets/specialita.webp" alt="Hovězí steak s krémovými těstovinami a pečivem" width="736"
+                  height="981" loading="lazy">
+                <figcaption class="photo-note note-bread">Křupavé pečivo<svg viewBox="0 0 76 52" aria-hidden="true">
+                    <path d="M3 3C58 0 18 30 70 45M59 44l12 2-3-12" />
+                  </svg></figcaption>
+                <span class="photo-note note-steak" aria-hidden="true">Tak akorát.<svg viewBox="0 0 76 52">
+                    <path d="M3 3C58 0 18 30 70 45M59 44l12 2-3-12" />
+                  </svg></span>
+              </figure>
+              <figure class="slide" role="group" aria-roledescription="snímek" aria-label="2 ze 2" inert
+                aria-hidden="true">
+                <img src="assets/kuchyne.webp" alt="Příprava jídla v kuchyni — kuchař u grilu" width="1920"
+                  height="1288" loading="lazy">
+                <figcaption class="photo-note note-kitchen">Tady to začíná.</figcaption>
+              </figure>
+            </div>
+            <svg class="tally photo-tally" aria-hidden="true">
+              <use href="#tally" />
+            </svg>
+            <button class="carousel-arrow previous" type="button" aria-label="Předchozí fotografie"><svg
+                aria-hidden="true">
+                <use href="#arrow" />
+              </svg></button>
+            <button class="carousel-arrow next" type="button" aria-label="Další fotografie"><svg aria-hidden="true">
+                <use href="#arrow" />
+              </svg></button>
+          </div>
+          <div class="carousel-bottom">
+            <div class="slide-caption">
+              <p class="dish-name">Steak &amp; krémové těstoviny</p>
+              <span class="dish-detail">Malá ochutnávka z naší kuchyně.</span>
+            </div>
+            <div class="carousel-controls">
+              <button class="slide-dot is-current" type="button" aria-label="Zobrazit fotografii 1"
+                aria-current="true"></button>
+              <button class="slide-dot" type="button" aria-label="Zobrazit fotografii 2"></button>
+              <button class="autoplay-toggle" type="button" aria-label="Pozastavit střídání fotografií"
+                aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+            </div>
+          </div>
+          <p class="sr-only" id="carousel-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="menu section" id="menu" aria-labelledby="menu-title">
+        <header class="reveal menu-heading">
+          <span class="eyebrow">Na co máte chuť?</span>
+          <div class="section-heading">
+            <h2 id="menu-title" class="underlined">Menu</h2><img class="heading-fork" src="assets/about-fork.png" alt=""
+              width="600" height="120">
+          </div>
+          <p>Známé chutě. Poctivé porce.<br>A něco dobrého navíc.</p>
+          <p class="demo-note">Pracovní nabídka · ukázková jídla a ceny</p>
+        </header>
+        <nav class="menu-filters reveal" aria-label="Kategorie jídel">
+          <button type="button" class="is-active" data-category="hlavni" aria-pressed="true">Hlavní jídla</button>
+          <button type="button" data-category="male" aria-pressed="false">Něco malého</button>
+          <button type="button" data-category="sladke" aria-pressed="false">Sladká tečka</button>
+        </nav>
+        <div id="menu-list" class="menu-list reveal" aria-live="polite" aria-atomic="true">
+          <article class="menu-item">
+            <div class="dish-top">
+              <h3>Hovězí steak</h3><span>349 Kč</span>
+            </div>
+            <p>Krémové těstoviny, bylinky, pečivo</p><small>200 g · Alergeny: 1, 3, 7</small>
+          </article>
+          <article class="menu-item">
+            <div class="dish-top">
+              <h3>Burger Na Rynku</h3><span>269 Kč</span>
+            </div>
+            <p>Hovězí maso, čedar, cibulová marmeláda, hranolky</p><small>180 g · Alergeny: 1, 3, 7, 10, 11</small>
+          </article>
+          <article class="menu-item">
+            <div class="dish-top">
+              <h3>Pomalu tažená líčka</h3><span>289 Kč</span>
+            </div>
+            <p>Červené víno, bramborové pyré, kořenová zelenina</p><small>200 g · Alergeny: 7, 9, 12</small>
+          </article>
+          <article class="menu-item">
+            <div class="dish-top">
+              <h3>Houbové risotto</h3><span>239 Kč</span>
+            </div>
+            <p>Lesní houby, parmazán, tymián</p><small>300 g · Alergeny: 7, 9, 12</small>
+          </article>
+        </div>
+        <p class="menu-footnote">Vše je zatím ilustrační, včetně alergenů.<br>Finální nabídku doplníme před spuštěním.
+        </p>
+        <svg class="tally menu-tally" aria-hidden="true">
+          <use href="#tally" />
+        </svg>
+      </section>
+
+      <section class="reservation section" id="rezervace" aria-labelledby="reservation-title">
+        <svg class="reservation-spoon" aria-hidden="true">
+          <use href="#spoon" />
+        </svg>
+        <header class="reveal">
+          <span class="eyebrow">Vaše místo u stolu</span>
+          <h2 id="reservation-title">Stavte se.<br>Posaďte se.</h2>
+          <p>Ve dvou, s rodinou nebo celou partou.<br>Vyberte si, kdy dorazíte.</p>
+        </header>
+        <form class="booking-form reveal" id="booking-form" aria-describedby="booking-notice">
+          <div class="field">
+            <label for="booking-date">Který den?</label>
+            <input type="date" id="booking-date" name="date" required>
+          </div>
+          <div class="booking-row">
+            <div class="field">
+              <label for="booking-time">V kolik?</label>
+              <select id="booking-time" name="time" required>
+                <option value="">Vyberte čas</option>
+                <option>11:00</option>
+                <option>11:30</option>
+                <option>12:00</option>
+                <option>12:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option>14:30</option>
+                <option>15:00</option>
+                <option>15:30</option>
+                <option>16:00</option>
+                <option>16:30</option>
+                <option>17:00</option>
+                <option>17:30</option>
+                <option>18:00</option>
+                <option>18:30</option>
+                <option>19:00</option>
+                <option>19:30</option>
+                <option>20:00</option>
+                <option>20:30</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="booking-guests">Kolik vás bude?</label>
+              <select id="booking-guests" name="guests" required>
+                <option value="1">1 host</option>
+                <option value="2" selected>2 hosté</option>
+                <option value="3">3 hosté</option>
+                <option value="4">4 hosté</option>
+                <option value="5">5 hostů</option>
+                <option value="6">6 hostů</option>
+                <option value="7">7 hostů</option>
+                <option value="8">8 hostů</option>
+              </select>
+            </div>
+          </div>
+          <button class="booking-submit" type="submit" disabled>Vyzkoušet rezervaci <svg aria-hidden="true">
+              <use href="#arrow" />
+            </svg></button>
+          <noscript>
+            <p class="booking-notice">Pro vyzkoušení rezervace prosím zapněte JavaScript.</p>
+          </noscript>
+          <p class="booking-notice" id="booking-notice">Pouze ukázka. Stůl se doopravdy nerezervuje a žádné údaje se
+            neodesílají.</p>
+          <div class="booking-result" id="booking-result" role="status" aria-live="polite" hidden></div>
+        </form>
+      </section>
+
+      <section class="contact section" id="kontakt" aria-labelledby="contact-title">
+        <header class="reveal">
+          <span class="eyebrow">Těšíme se na vás</span>
+          <h2 id="contact-title" class="underlined">Uvidíme se<br>Na Rynku.</h2>
+        </header>
+        <div class="contact-details reveal">
+          <div class="contact-block">
+            <h3>Kde nás najdete</h3>
+            <p>Restaurace a hospoda Na Rynku<br><span class="placeholder">Přesnou adresu doplníme.</span></p>
+          </div>
+          <div class="contact-block">
+            <h3>Zavolejte. Napište.</h3>
+            <p class="placeholder">Telefon a e-mail doplníme.</p>
+          </div>
+          <div class="contact-block">
+            <h3>Kdy máme otevřeno</h3>
+            <p class="placeholder">Otevírací dobu doplníme.</p>
+          </div>
+        </div>
+        <svg class="tally contact-tally" aria-hidden="true">
+          <use href="#tally" />
+        </svg>
+        <span class="monogram contact-monogram" aria-hidden="true">R</span>
+        <a href="#nahoru" class="back-to-top">Zpátky nahoru <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>Na Rynku · Restaurace a hospoda</p>
+      <p>Pracovní verze, zatím jen na ochutnání.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

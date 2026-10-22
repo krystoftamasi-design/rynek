@@ -1,0 +1,10 @@
+{
+  "name": "na-rynku-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "check": "node --check app.js && node --check menu-focus.js && node --check tools/serve.mjs && node tools/check.mjs && node tools/check-menu-focus.mjs"
+  }
+}
